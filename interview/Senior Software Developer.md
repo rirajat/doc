@@ -74,6 +74,26 @@ Ex;
 
 __Apache Shiro__ is an open source software security framework that performs authentication, authorization, cryptography and session management. Shiro has been designed to be an intuitive and easy-to-use framework while still providing robust security features.
 
+#### Web Security
+
+__How to mitigate the SQL Injection risks?__
+- Prepared Statements 
+- Stored Procedures
+- Input Validation
+- ORM
+
+__What is Cross Site Scripting (XSS)?__
+
+By using Cross Site Scripting (XSS) technique, users executed malicious scripts (also called payloads) unintentionally by clicking on untrusted links and hence, these scripts pass cookies information to attackers.
+
+__What is ClickJacking?__
+
+ClickJacking is an attack that fools users into thinking they are clicking on one thing when they are actually clicking on another. The attack is possible thanks to HTML frames (iframes). 
+
+__role base security__
+
+varify the role and identity
+
 ## CI/CD
 
 __What's the difference between a blue/green deployment and a rolling deployment?__
@@ -208,15 +228,21 @@ __PACT__
 PACT is an open source tool. It helps in testing the interactions between consumers and service providers. 
 
 ### Kafka
-* What are the elements of Kafka?
-	- Topic: It is a bunch of similar kinds of messages.
-	- Producer: Using this, one can issue communications to the topic.
-	- Consumer: It endures to a variety of topics and takes data from brokers.
-	- Broker: This is the place where the issued messages are stored.
-* Describe partitioning key.
-	> Its role is to specify the target divider of the memo within the producer. Usually, a hash-oriented divider concludes the divider ID according to the given factors. Consumers also use tailored partitions.
-* Elaborate the architecture of Kafka.
-	> In Kafka, a cluster contains multiple brokers since it is a distributed system. Topic in the system will get divided into multiple partitions, and each broker stores one or more of those partitions so that multiple producers and consumers can publish and retrieve messages at the same time.
+
+__What are the elements of Kafka?__
+
+- _Topic_: It is a bunch of similar kinds of messages.
+- _Producer_: Using this, one can issue communications to the topic.
+- _Consumer_: It endures to a variety of topics and takes data from brokers.
+- _Broker_: This is the place where the issued messages are stored.
+
+__Describe partitioning key__
+
+Its role is to specify the target divider of the memo within the producer. Usually, a hash-oriented divider concludes the divider ID according to the given factors. Consumers also use tailored partitions.
+
+__Elaborate the architecture of Kafka.__
+
+In Kafka, a cluster contains multiple brokers since it is a distributed system. Topic in the system will get divided into multiple partitions, and each broker stores one or more of those partitions so that multiple producers and consumers can publish and retrieve messages at the same time.
 
 ### SOA
 
@@ -299,461 +325,654 @@ __Versioning__
 
 ## Programming
 
-#### OOP
-* An object is an instance of a class.
-* A class is simply a representation of a type of object.
-* A constructor is a method used to initialize the state of an object, and it gets invoked at the time of object creation. 
-* A destructor is a method which is automatically called when the object is made of scope or destroyed.
-* Symbol table is an important data structure created and maintained by compilers in order to store information about the occurrence of various entities such as variable names, function names, objects, classes, interfaces, etc
-The symbol table contains information to locate and relocate symbolic definitions and references. The assembler creates the symbol table section for the object file. It makes an entry in the symbol table for each symbol that is defined or referenced in the input file and is needed during linking.
-* Abstraction
-* Encapsulation - public, private
-* Inheritance - subclass
-* Polymorphism - overwriting
-* Abstract class vs interface
-    - An abstract class permits you to make functionality that subclasses can implement or override whereas an interface only permits you to state functionality but not to implement it.
-    	- An abstract class can have constructors
-    	- An interface is basically a contract
-    	- An abstract class is a good choice if you have plans for future expansion  – i.e. if a future expansion is likely in the class hierarchy.
+#### Object Oriented Programming (OOP)
 
-    	- You should use an interface if you want a contract on some behavior or functionality. You should not use an interface if you need to write the same code for the interface methods.
+__Object__ is an instance of a class.
 
-    	> In Java, an abstract class can implement an interface, and not provide implementations of all of the interface’s methods.  It is the responsibility of the first concrete class that has that abstract class as an ancestor to implement all of the methods in the interface.
-    		- Abstract class can implement interface but do not need to implement the methord
-    		- Interface can not implement interface
+__Class__ is simply a representation of a type of object.
 
-    	> C# on the other hand seems to require that the abstract class provide implementations for all of the methods on the interface. Even if that implementation is just a method signature.
-    		- Abstract class need to implement interface methord
-    		- Interface can inharit from other interface
-    		- An abstract class is a special type of class that cannot be instantiated
-* Static
-    - can not declare inside the methord
-    - The value is initialized when the class is loaded. Therefore each time you execute the code, it is initialized to the value "Java" as is defined in the class. The new value is not saved, it is only changed in memory and is "reset" when the code is executed again. 
-    - scope is defined only within the running program. everytime class is executed.
-    - It means the static variable are NOT global variable but only global to single execution!!!
+__Constructor__ is a method used to initialize the state of an object, and it gets invoked at the time of object creation. 
 
-    C#
-    >> class scope
-    >> object can not access Static methord/var
-    >>> Test t = null; t.StaticI - not accessable
+__Destructor__ is a method which is automatically called when the object is made of scope or destroyed.
 
-    Java
-    >> Static variables are "per class"
-    >> object can access Static methord
-    >>> Test t = null; t.StaticI - is accessable
+__Symbol table__ is an important data structure created and maintained by compilers in order to store information about the occurrence of various entities such as variable names, function names, objects, classes, interfaces, etc. The symbol table contains information to locate and relocate symbolic definitions and references. The assembler creates the symbol table section for the object file. It makes an entry in the symbol table for each symbol that is defined or referenced in the input file and is needed during linking.
 
-* Overloading and Overriding
-    - Overloading occurs when two or more methods in one class have the same method name but different parameters.
-    - Overriding means having two methods with the same method name and parameters (i.e., method signature)
+__Core concept__
+- Abstraction
+- Encapsulation - public, private
+- Inheritance - subclass
+- Polymorphism - overwriting
 
-* Structure and Class
-    - The default access type of a Structure is public, but class access type is private. A structure is used for grouping data, whereas a class can be used for grouping data and methods. 
+__Abstract class vs interface__
 
-* Type of scope (C#/Java)
-    - Class-Level Scope
-    - Method-Level Scope
-    - Nested Scope/Block scope
-    - dynamic scoping/lexical scoping/static scoping
+*Abastract class*
+- An abstract class permits you to make functionality that subclasses can implement or override whereas an interface only permits you to state functionality but not to implement it.
+- An abstract class can have constructors
+- An abstract class is a good choice if you have plans for future expansion  – i.e. if a future expansion is likely in the class hierarchy.
 
-* HashSet vs ArrayList
-    - HashSet ensures there are no duplicates, gives you an O(1) contains() method but doesn't preserve order.
-    	- is a set
-	- ArrayList doesn't ensure there are no duplicates, contains() is O(n) but you can control the order of the entries.
-		- is a list
-	- ArrayList is backed by an Array while HashSet is backed by an HashMap. 
-	- ArrayList maintains the order of the object in which they are inserted while HashSet is an unordered collection and doesn’t maintain any order. 
-	- ArrayList is index based we can retrieve object by calling get(index) method or remove objects by calling remove(index) method while HashSet is completely object based. 
-	- ArrayList not apply any restriction, we can add any number of null value while HashSet allow one null value. 
+*Interface*
+- You should use an interface if you want a contract on some behavior or functionality. You should not use an interface if you need to write the same code for the interface methods.
+- An interface is basically a contract
 
-* context-switching in multi-threading
-	- Context Switching is the process of storing and restoring of CPU state so that Thread execution can be resumed from the same point at a later point of time. Context Switching is the essential feature for multitasking operating system and support for multi-threaded environment. 
+In Java, an abstract class can implement an interface, and not provide implementations of all of the interface’s methods.  It is the responsibility of the first concrete class that has that abstract class as an ancestor to implement all of the methods in the interface.
+- Abstract class can implement interface but do not need to implement the methord
+- Interface can not implement interface
+
+C# on the other hand seems to require that the abstract class provide implementations for all of the methods on the interface. Even if that implementation is just a method signature.
+- Abstract class need to implement interface methord
+- Interface can inharit from other interface
+- An abstract class is a special type of class that cannot be instantiated
+
+__Static__
+- can not declare inside the methord
+- The value is initialized when the class is loaded. Therefore each time you execute the code, it is initialized to the value "Java" as is defined in the class. The new value is not saved, it is only changed in memory and is "reset" when the code is executed again. 
+- scope is defined only within the running program. everytime class is executed.
+- It means the static variable are NOT global variable but only global to single execution!!!
+
+C#
+- class scope
+- object can not access Static methord/var
+- `Test t = null; t.StaticI - not accessable`
+
+Java
+- Static variables are "per class"
+- object can access Static methord
+- `Test t = null; t.StaticI - is accessable`
+
+__Overloading and Overriding__
+
+*Overloading* occurs when two or more methods in one class have the same method name but different parameters.
+
+*Overriding* means having two methods with the same method name and parameters (i.e., method signature)
+
+__Structure and Class__
+
+The default access type of a Structure is public, but class access type is private. 
+A structure is used for grouping data, whereas a class can be used for grouping data and methods. 
+
+__Type of scope (C#/Java)__
+- Class-Level Scope
+- Method-Level Scope
+- Nested Scope/Block scope
+- dynamic scoping/lexical scoping/static scoping
+
+__HashSet vs ArrayList__
+- HashSet ensures there are no duplicates, gives you an O(1) contains() method but doesn't preserve order.
+    - is a set
+- ArrayList doesn't ensure there are no duplicates, contains() is O(n) but you can control the order of the entries.
+	- is a list
+- ArrayList is backed by an Array while HashSet is backed by an HashMap. 
+- ArrayList maintains the order of the object in which they are inserted while HashSet is an unordered collection and doesn’t maintain any order. 
+- ArrayList is index based we can retrieve object by calling get(index) method or remove objects by calling remove(index) method while HashSet is completely object based. 
+- ArrayList not apply any restriction, we can add any number of null value while HashSet allow one null value. 
+
+__context-switching in multi-threading__
+
+*Context Switching* is the process of storing and restoring of CPU state so that Thread execution can be resumed from the same point at a later point of time. Context Switching is the essential feature for multitasking operating system and support for multi-threaded environment. 
 
 
 #### C\#
 
-* Can multiple catch blocks be executed?
-	> No, Multiple catch blocks can't be executed. Once the proper catch code executed, the control is transferred to the finally block, and then the code that follows the finally block gets executed. 
-* What is Jagged Arrays?
-	> The Array which has elements of type array is called jagged Array. The elements can be of different dimensions and sizes. We can also call jagged Array as an Array of arrays. 
-* What is the difference between ref & out parameters?
-	> An argument passed as ref must be initialized before passing to the method whereas out parameter needs not to be initialized before passing to a method. 
-*  What is serialization?
-	> When we want to transport an object through a network, then we have to convert the object into a stream of bytes. The process of converting an object into a stream of bytes is called Serialization. For an object to be serializable, it should implement ISerialize Interface. De-serialization is the reverse process of creating an object from a stream of bytes. 
-* What is the difference between constants and read-only?
-	> Constant variables are declared and initialized at compile time. The value can't be changed afterward. Read-only is used only when we want to assign the value at run time. 
-* sealed classes in C#
-	> Sealed classes are used to restrict the inheritance feature of object oriented programming. Once a class is defined as a sealed class, this class cannot be inherited. 
-* Describe the accessibility modifier "protected internal".
-	> Protected Internal variables/methods are accessible within the same assembly and also from the classes that are derived from this parent class. 
-* What are the differences between System.String and System.Text.StringBuilder classes?
-	> System.String is immutable. When we modify the value of a string variable, then a new memory is allocated to the new value and the previous memory allocation released. System.StringBuilder was designed to have a concept of a mutable string where a variety of operations can be performed without allocation separate memory location for the modified string. 
-* What is the difference between Finalize() and Dispose() methods?
-	> Dispose() is called when we want for an object to release any unmanaged resources with them. On the other hand, Finalize() is used for the same purpose, but it doesn't assure the garbage collection of an object.
-	- Java does not have dispose. It has finalize only 
-* What is an object pool in .NET?
-	> An object pool is a container having objects ready to be used. It tracks the object that is currently in use, total number of objects in the pool. This reduces the overhead of creating and re-creating objects. 
-* What are delegates?
+__Can multiple catch blocks be executed?__
 
-	A delegate is a type that represents references to methods with a particular parameter list and return type.
+No, Multiple catch blocks can't be executed. Once the proper catch code executed, the control is transferred to the finally block, and then the code that follows the finally block gets executed. 
 
-	`Delegates are same are function pointers in C++, but the only difference is that they are type safe, unlike function pointers. Delegates are required because they can be used to write much more generic type-safe functions.`
+__What is Jagged Arrays?__
 
-* What are indexers in C# .NET?
-	> Indexers are known as smart arrays in C#. It allows the instances of a class to be indexed in the same way as an array. 
-	`public string this[int index] { get; set; }`
-* Is C# code is managed or unmanaged code?
-	> C# is managed code because Common language runtime can compile
-* difference between Virtual method and Abstract method?
-	> A Virtual method must always have a default implementation. However, it can be overridden in the derived class, though not mandatory. It can be overridden using override keyword.
+The Array which has elements of type array is called jagged Array. The elements can be of different dimensions and sizes. We can also call jagged Array as an Array of arrays. 
+
+__What is the difference between ref & out parameters?__
+
+An argument passed as ref must be initialized before passing to the method whereas out parameter needs not to be initialized before passing to a method. 
+
+__What is serialization?__
+
+When we want to transport an object through a network, then we have to convert the object into a stream of bytes. The process of converting an object into a stream of bytes is called Serialization. For an object to be serializable, it should implement ISerialize Interface. De-serialization is the reverse process of creating an object from a stream of bytes. 
+
+__What is the difference between constants and read-only?__
+
+Constant variables are declared and initialized at compile time. The value can't be changed afterward. Read-only is used only when we want to assign the value at run time. 
+
+__sealed classes in C#__
+
+Sealed classes are used to restrict the inheritance feature of object oriented programming. Once a class is defined as a sealed class, this class cannot be inherited. 
+
+__Describe the accessibility modifier "protected internal".__
+
+Protected Internal variables/methods are accessible within the same assembly and also from the classes that are derived from this parent class. 
+
+__What are the differences between System.String and System.Text.StringBuilder classes?__
+
+System.String is immutable. When we modify the value of a string variable, then a new memory is allocated to the new value and the previous memory allocation released. System.StringBuilder was designed to have a concept of a mutable string where a variety of operations can be performed without allocation separate memory location for the modified string. 
+
+__What is the difference between Finalize() and Dispose() methods?__
+
+Dispose() is called when we want for an object to release any unmanaged resources with them. On the other hand, Finalize() is used for the same purpose, but it doesn't assure the garbage collection of an object.
+
+*Java does not have dispose. It has finalize only*
+
+__What is an object pool in .NET?__
+
+An object pool is a container having objects ready to be used. It tracks the object that is currently in use, total number of objects in the pool. This reduces the overhead of creating and re-creating objects. 
+
+__What are delegates?__
+
+A delegate is a type that represents references to methods with a particular parameter list and return type.
+
+Delegates are same are function pointers in C++, but the only difference is that they are type safe, unlike function pointers. Delegates are required because they can be used to write much more generic type-safe functions.
+
+__What are indexers in C# .NET?__
+
+Indexers are known as smart arrays in C#. It allows the instances of a class to be indexed in the same way as an array. 
+
+`public string this[int index] { get; set; }`
+
+__Is C# code is managed or unmanaged code?__
+
+C# is managed code because Common language runtime can compile
+
+__difference between Virtual method and Abstract method?__
+
+A Virtual method must always have a default implementation. However, it can be overridden in the derived class, though not mandatory. It can be overridden using override keyword.
 		
-	> An Abstract method does not have an implementation. It resides in the abstract class. It is mandatory that the derived class implements the abstract method. An override keyword is not necessary here though it can be used.
-* What are Boxing and Unboxing?
-	- Converting a value type to reference type is called Boxing.
-	- Explicit conversion of same reference type (created by boxing) back to value type is called Unboxing.
-* multi-dimensional array?
-	`int[,] numbers = new int[3,2] { {1,2} ,{2,3},{3,4} };`
-* What is a Deadlock?
-	> A Deadlock is a situation where a process is not able to complete its execution because two or more processes are waiting for each other to finish. This usually occurs in multi-threading.
-* What is Serialization?
-	- Serialization is a process of converting a code to its binary format. Once it is converted to bytes, it can be easily stored and written to a disk or any such storage devices. Serializations are mainly useful when we do not want to lose the original form of the code and it can be retrieved anytime in the future. 
-	- XML serialization – It serializes all the public properties to the XML document. Since the data is in XML format, it can be easily read and manipulated in various formats. The classes reside in System.sml.Serialization.
-    - SOAP – Classes reside in System.Runtime.Serialization. Similar to XML but produces a complete SOAP compliant envelope which can be used by any system that understands SOAP.  
-    - Binary Serialization – Allows any code to be converted to its binary form. Can serialize and restore public and non-public properties. It is faster and occupies less space.
+An Abstract method does not have an implementation. It resides in the abstract class. It is mandatory that the derived class implements the abstract method. An override keyword is not necessary here though it can be used.
 
-* What is Heap and what is Stack?
-    - Both are memory locations, wherein Heap is global and Stack is local.
-    - The Stack has a defined first-in-first-out stack structure, while the Heap does not have a defined data structure.
-    - The Stack is faster than the Heap. A stack is in “cache” and doesn’t have to synchronize with other threads like the Heap.
-    - The Stack stores values while the Heap stores objects.
-    >> What is LINQ?
-    	It is standardization to consult data and convert it into objects, regardless of the source. It is a query manager for databases, XML and enumerable collections using a single language.
-    >> deferred execution and the immediate execution in LINQ
-    	A deferred execution encapsulates a query’s definition without executing it till the data is used at runtime.
-    	By default, the executions are deferred but we can do them immediately by calling “To List ()”. 
-    >> sealed class?
-    	It is a class that is not inheritable.
-    >> constants and read only variables?
-    	For constants, the compilation contains declaration and initialization. Its value cannot change. 
-    	For read-only variables, the runtime execution contains the assignment of values.
-    	Read-only variables can support reference-type variables. Constants can hold only value-type variables.
-    	Developers evaluate read-only variables at the runtime. They evaluate constants at the compile time.
-    	Read only can be only assign through constractor
-    >> Explain Mutex
-    	Threads share a mutually exclusive resource manager, Mutex. It ensures that only one thread at a time makes use of one resource (one object) at a time.
-    >> What is Semaphore?
-    	Semaphores are used when we have to restrict how many threads can enter a critical region.
-    >>  What is Lock?
-    	Locks needs an object to continue its operation. It apply a lock on a target object and only one thread can lock that target object at a time. 
-    >> What is ReaderWriterLockSlim?
-    	ReaderWriterLock is useful in multithreaded programs where mainly threads needs only read access and occasionally some thread want to update the shared data. 
-    >> How can you make a Singleton class thread safe?
-    	To make singleton class thread-safe, we can apply double-check locking algorithm. In this algorithm, we can put two if conditions to check object is null or not. 
-    >> Monitor Class
-    	Provides a mechanism that synchronizes access to objects. same as lock
-    	Monitor.Enter(s_lock);
-    	Monitor.Exit(s_lock); 
-    >> Thread notification
-    	foo.notify() => Monitor.Pulse(foo) // let thread run
-		foo.notifyAll() => Monitor.PulseAll(foo)/Monitor.Push(this) // notify any waiting threads
-		foo.wait() =>  Monitor.Wait(foo) //wait to finish the thread
-* volatile 
-		The volatile keyword indicates that a field might be modified by multiple threads that are executing at the same time.
-    >> What is immutability, what is it for and how is it codified?
-    	The ability of objects not to change their state, once created, helps improve the maintainability of the code. When a mutable object encapsulates its changes without being explicit in the code, following the flow becomes difficult. The level of difficulty increases in case of multi-threaded applications. To create immutable objects, pass the arguments for their creation in the constructor; make their properties read-only later.
-    >> What is the difference between encrypting a password and applying a hashing?
-    	It is quite difficult (almost impossible) to decrypt a hashing (MD5 or SHA1, for example). The process of password validation compares the password in plain text with a hash to the stored one. Conversely, one can decrypt an encrypted password with access to the keys and the encryption algorithms (such as Triple-DES).
-    >> What is a variable of implicit type and what is its scope?
-    	It is a variable that doesn’t require type declaration since the compiler automatically determines its type. Its scope is local, within a method. It only allows inferring the kind the first time it assigns a value
-    >> Constractor, destractor, finalize, Dispose
-    	Constractor do not have return type not even void.
-    	'~ClassName()' - destractor call finalize in object.
-    	Dispose use IDispose interface.
-    >> difference between Task and Thread in .NET
-    	The Task class from the Task Parallel Library offers the best of both worlds. Like the ThreadPool, a task does not create its own OS thread. Instead, tasks are executed by a TaskScheduler; the default scheduler simply runs on the ThreadPool. Unlike the ThreadPool, Task also allows you to find out when it finishes, and (via the generic Task) to return a result. 
-    	Thread represents an actual OS-level thread, with its own stack and kernel resources. Thread allows the highest degree of control; you can Abort() or Suspend() or Resume() a thread, you can observe its state, and you can set thread-level properties like the stack size, apartment state, or culture. ThreadPool is a wrapper around a pool of threads maintained by the CLR.
-    >> What is the "yield" keyword used for in C#?
-    	In the iterator block, the yield keyword is used together with the return keyword to provide a value to the enumerator object.
-    >> abstract class
-    	abstract class can not be 'sealed' or 'static'
+__What are Boxing and Unboxing?__
 
-- ASP MVC
-* trafer data
-		Model
-		ViewBag
-		ViewData
-		TempData
-* Filter
-		ASP.NET MVC Filter is a custom class where you can write custom logic to execute before or after an action method executes.
-* ActionFilter
-		Action filter executes before and after an action method executes.
-* Routing 
-		Routing to eliminate needs of mapping each URL with a physical file.
-* Action Selectors
-		Action selector is the attribute that can be applied to the action methods.
-		ActionName - ActionName attribute allows us to specify a different action name than the method name.
-		NonAction - NonAction selector attribute indicates that a public method of a Controller is not an action method.
-		ActionVerbs - The ActionVerbs selector is used when you want to control the selection of an action method based on a Http request method.
-* Model Binding
-		Model binding is a well-designed bridge between the HTTP request and the C# action methods.
-- Web Security
-* How to mitigate the SQL Injection risks?
-		Prepared Statements 
-		Stored Procedures
-		Input Validation
-		ORM
-* What is Cross Site Scripting (XSS)?
-		By using Cross Site Scripting (XSS) technique, users executed malicious scripts (also called payloads) unintentionally by clicking on untrusted links and hence, these scripts pass cookies information to attackers.
-* What is ClickJacking?
-		ClickJacking is an attack that fools users into thinking they are clicking on one thing when they are actually clicking on another. The attack is possible thanks to HTML frames (iframes). 
-* role base security
-		varify the role and identity
-* 
-- Java
-	* Do all the properties of an Immutable Object need to be final in Java?
-		Not necessary. You can achieve the same functionality by making a member non-final but private and not modifying them except in the constructor.
-	* Private static
-		only visible inside the class and which has only 1 copy, shared by all instances of the class.
-	* What’s wrong with using HashMap in the multi-threaded environment? When does the put() method go to the infinite loop? 
-		Well, nothing is wrong; it just depends upon how you use it. For example, if you initialize a HashMap by just one thread and all threads are only reading from it, then it’s perfectly fine.
-		Since the put() operation can cause re-sizing and lead to an infinite loop, that’s why either you should use Hashtable or ConcurrentHashMap, later is even better.
-	* Can you write a critical section code for the singleton?
-		public class Singleton {
-		    private static volatile Singleton _instance;
-		    public static Singleton getInstance() {
-		        if (_instance == null) {
-		            synchronized (Singleton.class) {
-		                if (_instance == null) {
-		                    _instance = new Singleton();
-		                }
-		            }
-		        }
-		        return _instance;
-		    }
-		}
-	* Fail-fast vs Fail-safe
-		fail-fast - fail as soon as they relalize; ie. ArrayList
-		fail-safe - handel the failure; ie. ConcurrentHashMap
-	* ThreadLocal
-		A single ThreadLocal instance can store different values for each thread independently. 
-		In Java, each thread has its own stack, including its own copy of variables it can access. When the thread is created, it copies the value of all accessible variables into its own stack. The volatile keyword basically says to the JVM “Warning, this variable may be modified in another Thread”.
-	* Catch an exception thrown by another thread
-		Thread.UncaughtExceptionHandler
-	* Multiple inheritance cannot be achieved in java. To overcome this problem Interface concept is introduced.
-	* Method references
-		Method references were introduced in Java 8 and allow constructors and methods (static or otherwise) to be used as lambdas.
-	* Enums are essentially final classes with a fixed number of instances. They can implement interfaces but cannot extend another class.
-	* static initializers
-		A static initializer gives you the opportunity to run code during the initial loading of a class and it guarantees that this code will only run once and will finish running before your class can be accessed in any way.
-		public static final Map<String, Boolean> FEATURE_FLAGS;
-        static {
-            Map<String, Boolean> flags = new HashMap<>();
-            flags.put("frustrate-users", false);
-            flags.put("reticulate-splines", true);
-            flags.put(...);
-            FEATURE_FLAGS = Collections.unmodifiableMap(flags);
-        }
-	* Difference between Array and Array List.
-		Array size is declared
-		ArrayList size not requeired
-	* Difference between String, String Builder, and String Buffer.
-		String imutable
-		String Buffer store in stack and mutable and replace old value with new. Its sencronized and thread safe.
-		String builder is not thread save same as string buffer.
-	* HashMap and HashTable.
-		HashMap not syncronize and thread safe.
-		HashTable synchronized and thread safe.
-	* yield method
-		A yield () method moves the currently running thread to a  runnable state and allows the other threads for execution
-	* Difference between notify() method and notifyAll() method in Java.
-		notify; send a signal to wake up a single thread
-		notifyall; sends signal to wake up all the threads
+Converting a value type to reference type is called *Boxing*.
 
-	- Spring boot
-		* What is Spring Boot? - Spring Boot is another Java framework from Sring umbrella
-		* feature;
-			- starter dependency
-			- auto-config
-			- spring initializer
-			- spring actuator
-			- spring cli
-		* Starter dependency - allow you to see inside the running spring boot application
-		* Inversion of Control, or IoC - process in which an object defines its dependencies without creating them.
-		* Bean - code managed by spring framework
-			- singleton scope
-			- propttype scope - create new bean everytime
-			- request scope - create bean in every http request
-			- session scope - http session lifetime
-			- global scope - create bean in global session and can be shared in other session.
-		* Autowired - allows spring to resolve and inject collaboration beans.
-			- Properties
-			- Setters
-			- Constrator
-			- Optional autowired
-			- Qualifer - use to hint at and narrow down the required bean.
-			- Custom Qualifier 
+Explicit conversion of same reference type (created by boxing) back to value type is called *Unboxing*.
 
+__multi-dimensional array?__
 
-	- camel
-	- Memory Management
-		> jps - show all memory info
-		> jstack -l 11568 > thread_dump.txt - send all thread dump in the file
-		> kill -3 11568
-		* JProfiler
-		* visualvm
-		* Hip space and metaspace
-		* Number of memory
-			- eden
-			- S0
-			- S1
-			- Old memory
-			- Perm
-	- Thread
-- JavaScript
-	- Promis
-	- EmberJs
-	- VouJs
-	- Angular
+`int[,] numbers = new int[3,2] { {1,2} ,{2,3},{3,4} };`
 
-Database
-- NoSql
-- Performance
-	* Make Sure Snapshot Mode Is On
-	* indexing
-	* avoid fragment indexing
-	* run missing index report
-	* monitor database session
-	* profiling sql query
-	* Dynamic Management Views (DMV’s) Used
-		- identify slow query
+__What is a Deadlock?__
+
+A Deadlock is a situation where a process is not able to complete its execution because two or more processes are waiting for each other to finish. This usually occurs in multi-threading.
+
+__What is Serialization?__
+
+Serialization is a process of converting a code to its binary format. Once it is converted to bytes, it can be easily stored and written to a disk or any such storage devices. Serializations are mainly useful when we do not want to lose the original form of the code and it can be retrieved anytime in the future. 
+
+*XML serialization* – It serializes all the public properties to the XML document. Since the data is in XML format, it can be easily read and manipulated in various formats. The classes reside in System.sml.Serialization.
+
+*SOAP* – Classes reside in System.Runtime.Serialization. Similar to XML but produces a complete SOAP compliant envelope which can be used by any system that understands SOAP.  
+
+*Binary Serialization* – Allows any code to be converted to its binary form. Can serialize and restore public and non-public properties. It is faster and occupies less space.
+
+__What is Heap and what is Stack?__
+- Both are memory locations, wherein Heap is global and Stack is local.
+- The Stack has a defined first-in-first-out stack structure, while the Heap does not have a defined data structure.
+- The Stack is faster than the Heap. A stack is in “cache” and doesn’t have to synchronize with other threads like the Heap.
+- The Stack stores values while the Heap stores objects.
+
+__What is LINQ?__
+
+It is standardization to consult data and convert it into objects, regardless of the source. It is a query manager for databases, XML and enumerable collections using a single language.
+
+__deferred execution and the immediate execution in LINQ__
+
+A deferred execution encapsulates a query’s definition without executing it till the data is used at runtime.
+
+By default, the executions are deferred but we can do them immediately by calling “To List ()”. 
+
+__constants and read only variables?__
+
+For constants, the compilation contains declaration and initialization. Its value cannot change. 
+
+For read-only variables, the runtime execution contains the assignment of values. 
+- Read-only variables can support reference-type variables. Constants can hold only value-type variables. 
+- Developers evaluate read-only variables at the runtime. They evaluate constants at the compile time.
+- Read only can be only assign through constractor
+
+__Explain Mutex__
+
+Threads share a mutually exclusive resource manager, Mutex. It ensures that only one thread at a time makes use of one resource (one object) at a time.
+
+__What is Semaphore?__
+
+Semaphores are used when we have to restrict how many threads can enter a critical region.
+
+__What is Lock?__
+
+Locks needs an object to continue its operation. It apply a lock on a target object and only one thread can lock that target object at a time. 
+
+__What is ReaderWriterLockSlim?__
+
+ReaderWriterLock is useful in multithreaded programs where mainly threads needs only read access and occasionally some thread want to update the shared data. 
+
+__How can you make a Singleton class thread safe?__
+
+To make singleton class thread-safe, we can apply double-check locking algorithm. In this algorithm, we can put two if conditions to check object is null or not. 
+
+__Monitor Class__
+
+Provides a mechanism that synchronizes access to objects. same as lock
+
+	Monitor.Enter(s_lock);
+	Monitor.Exit(s_lock); 
+
+__Thread notification__
+
+    foo.notify() => Monitor.Pulse(foo) // let thread run
+	foo.notifyAll() => Monitor.PulseAll(foo)/Monitor.Push(this) // notify any waiting threads
+	foo.wait() =>  Monitor.Wait(foo) //wait to finish the thread
+
+__volatile__ 
+
+The volatile keyword indicates that a field might be modified by multiple threads that are executing at the same time.
+
+__What is immutability, what is it for and how is it codified?__
+
+The ability of objects not to change their state, once created, helps improve the maintainability of the code. When a mutable object encapsulates its changes without being explicit in the code, following the flow becomes difficult. The level of difficulty increases in case of multi-threaded applications. To create immutable objects, pass the arguments for their creation in the constructor; make their properties read-only later.
+
+__What is the difference between encrypting a password and applying a hashing?__
+
+It is quite difficult (almost impossible) to decrypt a hashing (MD5 or SHA1, for example). The process of password validation compares the password in plain text with a hash to the stored one. Conversely, one can decrypt an encrypted password with access to the keys and the encryption algorithms (such as Triple-DES).
+
+__What is a variable of implicit type and what is its scope?__
+
+It is a variable that doesn’t require type declaration since the compiler automatically determines its type. Its scope is local, within a method. It only allows inferring the kind the first time it assigns a value
+
+__Constractor, destractor, finalize, Dispose__
+
+Constractor do not have return type not even void.
+
+`~ClassName()` - destractor call finalize in object.
+
+Dispose use IDispose interface.
+
+__difference between Task and Thread in .NET__
+
+The Task class from the Task Parallel Library offers the best of both worlds. Like the ThreadPool, a task does not create its own OS thread. Instead, tasks are executed by a TaskScheduler; the default scheduler simply runs on the ThreadPool. Unlike the ThreadPool, Task also allows you to find out when it finishes, and (via the generic Task) to return a result. 
+
+Thread represents an actual OS-level thread, with its own stack and kernel resources. Thread allows the highest degree of control; you can Abort() or Suspend() or Resume() a thread, you can observe its state, and you can set thread-level properties like the stack size, apartment state, or culture. ThreadPool is a wrapper around a pool of threads maintained by the CLR.
+
+__What is the "yield" keyword used for in C#?__
+
+In the iterator block, the yield keyword is used together with the return keyword to provide a value to the enumerator object.
+
+__abstract class__
+
+abstract class can not be 'sealed' or 'static'
+
+#### ASP MVC
+
+__trafer data__
+- Model
+- ViewBag
+- ViewData
+- TempData
+
+__Filter__
+
+ASP.NET MVC Filter is a custom class where you can write custom logic to execute before or after an action method executes.
+
+__ActionFilter__
+
+Action filter executes before and after an action method executes.
+
+__Routing__
+
+Routing to eliminate needs of mapping each URL with a physical file.
+
+__Action Selectors__
+
+Action selector is the attribute that can be applied to the action methods.
+
+*ActionName* attribute allows us to specify a different action name than the method name.
+
+*NonAction* selector attribute indicates that a public method of a Controller is not an action method.
+
+The *ActionVerbs* selector is used when you want to control the selection of an action method based on a Http request method.
+
+__Model Binding__
+
+Model binding is a well-designed bridge between the HTTP request and the C# action methods.
+
+#### Java
+
+__Do all the properties of an Immutable Object need to be final in Java?__
+
+Not necessary. You can achieve the same functionality by making a member non-final but private and not modifying them except in the constructor.
+
+__Private static__
+
+only visible inside the class and which has only 1 copy, shared by all instances of the class.
+
+__What’s wrong with using HashMap in the multi-threaded environment? When does the put() method go to the infinite loop?__
+
+Well, nothing is wrong; it just depends upon how you use it. For example, if you initialize a HashMap by just one thread and all threads are only reading from it, then it’s perfectly fine.
+
+Since the put() operation can cause re-sizing and lead to an infinite loop, that’s why either you should use Hashtable or ConcurrentHashMap, later is even better.
+
+__Can you write a critical section code for the singleton?__
+
+	public class Singleton {
+	    private static volatile Singleton _instance;
+	    public static Singleton getInstance() {
+	        if (_instance == null) {
+	            synchronized (Singleton.class) {
+	                if (_instance == null) {
+	                    _instance = new Singleton();
+	                }
+	            }
+	        }
+	        return _instance;
+	    }
+	}
+
+__Fail-fast vs Fail-safe__
+
+*fail-fast* - fail as soon as they relalize; ie. ArrayList
+
+*fail-safe* - handel the failure; ie. ConcurrentHashMap
+
+__ThreadLocal__
+
+A single ThreadLocal instance can store different values for each thread independently. 
+
+In Java, each thread has its own stack, including its own copy of variables it can access. When the thread is created, it copies the value of all accessible variables into its own stack. The volatile keyword basically says to the JVM “Warning, this variable may be modified in another Thread”.
+
+__Catch an exception thrown by another thread__
+
+	Thread.UncaughtExceptionHandler
+
+__Why interface needed?__
+
+Multiple inheritance cannot be achieved in java. To overcome this problem Interface concept is introduced.
+
+__Method references__
+
+Method references were introduced in Java 8 and allow constructors and methods (static or otherwise) to be used as lambdas.
+
+__Enums__
+Enums are essentially final classes with a fixed number of instances. They can implement interfaces but cannot extend another class.
+
+__static initializers__
+
+A static initializer gives you the opportunity to run code during the initial loading of a class and it guarantees that this code will only run once and will finish running before your class can be accessed in any way.
+
+	public static final Map<String, Boolean> FEATURE_FLAGS;
+    static {
+        Map<String, Boolean> flags = new HashMap<>();
+        flags.put("frustrate-users", false);
+        flags.put("reticulate-splines", true);
+        flags.put(...);
+        FEATURE_FLAGS = Collections.unmodifiableMap(flags);
+    }
+
+__Difference between Array and Array List.__
+
+Array size is declared
+
+ArrayList size not requeired
+
+__Difference between String, String Builder, and String Buffer.__
+		
+*String* imutable
+		
+*String Buffer* store in stack and mutable and replace old value with new. Its sencronized and thread safe.
+
+*String builder* is not thread save same as string buffer.
+
+__HashMap and HashTable.__
+
+*HashMap* not syncronize and thread safe.
+		
+*HashTable* synchronized and thread safe.
+
+__yield method__
+
+A yield method moves the currently running thread to a  runnable state and allows the other threads for execution
+
+__Difference between notify() method and notifyAll() method in Java.__
+		
+`notify`; send a signal to wake up a single thread
+		
+`notifyall`; sends signal to wake up all the threads
+
+##### Spring boot
+
+__What is Spring Boot?__
+
+Spring Boot is another Java framework from Sring umbrella
+
+__feature__
+- starter dependency
+- auto-config
+- spring initializer
+- spring actuator
+- spring cli
+
+__Starter dependency__
+
+allow you to see inside the running spring boot application
+		
+__Inversion of Control, or IoC__
+
+process in which an object defines its dependencies without creating them.
+		
+__Bean__ 
+
+Code managed by spring framework
+- singleton scope
+- propttype scope - create new bean everytime
+- request scope - create bean in every http request
+- session scope - http session lifetime
+- global scope - create bean in global session and can be shared in other session.
+
+__Autowired__
+
+allows spring to resolve and inject collaboration beans.
+- Properties
+- Setters
+- Constrator
+- Optional autowired
+- Qualifer - use to hint at and narrow down the required bean.
+- Custom Qualifier 
+
+##### Memory Management
+
+__jps__ - show all memory info
+
+`jstack -l 11568 > thread_dump.txt` - send all thread dump in the file
+
+`kill -3 11568` - kill the process
+
+__Applicaiton use to identify memory__
+- JProfiler
+- visualvm
+
+__Java Memory managemnt looks like__
+
+Hip space and metaspace
+
+__Java memory level__
+- eden
+- S0
+- S1
+- Old memory
+- Perm
+
+#### JavaScript
+- Promis
+- EmberJs
+- VouJs
+- Angular
+
+## Database
+
+__Type of databases__
+- RDMS: SQLServer, MySql, Postgrad, Oracal
+- NoSql: MongoDb, Casandra, Readis
+- Graph Database: Neo4j
+
+__Database Performance__
+- Make Sure Snapshot Mode Is On
+- indexing
+- avoid fragment indexing
+- run missing index report
+- monitor database session
+- profiling sql query
+- Dynamic Management Views (DMV’s) Used
+	- identify slow query
 - Join
-- Hibernate
-	* session - session is used to get a new connection
-	* transient - new instant of a persistent class
-	* persistent - instance has a representaion in the database
-	* detached - close the session persistent instance will be detached
-- JPA
-- ACID -  set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc.
-	* Atomicity -  Atomicity guarantees that each transaction is treated as a single "unit", which either succeeds completely, or fails completely: if any of the statements constituting a transaction fails to complete, the entire transaction fails and the database is left unchanged.
-	* Consistency - Consistency ensures that a transaction can only bring the database from one valid state to another,
-	* Isolation -  Isolation is the main goal of concurrency control; depending on the method used, the effects of an incomplete transaction might not even be visible to other transactions.
-	* Durability - Durability guarantees that once a transaction has been committed, it will remain committed even in the case of a system failure
-- SQL vs. no SQL
-	SQL databases are primarily called as Relational Databases (RDBMS); whereas NoSQL database are primarily called as non-relational or distributed database.
-- Improve Performance
-	Optimize Queries
-	Create optimal indexes
-	Update CPU
-	Allocate more memory
-	Data defragmentation
-	Disk Types
-	Database version
-	Stream data
-- Reading Large number of data
-	Chunking your data
-	Dropping data
-	Set specific data types for each column
-- Faster query
-	Use only the correct number of columns you need
-	Reduce nested views to reduce lags
-	Use automatic partitioning SQL server features
-	Convert scalar functions into table-valued functions
-	Avoid sub query
-	Create a Highly Selective Index
-	Data pre-staging
-		Data pre-staging means you can have your reports faster. Join data tables ahead of reporting, presentation or writing time to avoid joining them together at once.
-	Use temp tables
-		Temporary tables come in handy in several situations, especially when you are joining a small table to a larger one.
-	Avoid negative searches
-		 Nothing slows data as much as carrying out negative searches. To avoid this, rewrite your queries with better indexes, especially for large amounts of data.
-	Avoid cursors
-	Do not use Globally Unique Identifiers 
-	Avoid triggers
-	Separate large and small transactions
-	use stored procedures
 
+__Hibernate__
+
+*session* - session is used to get a new connection
+
+*transient* - new instant of a persistent class
+
+*persistent* - instance has a representaion in the database
+
+*detached* - close the session persistent instance will be detached
+
+__JPA__
+
+__ACID__
+
+set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc.
+
+*Atomicity* -  Atomicity guarantees that each transaction is treated as a single "unit", which either succeeds completely, or fails completely: if any of the statements constituting a transaction fails to complete, the entire transaction fails and the database is left unchanged.
+
+*Consistency* - Consistency ensures that a transaction can only bring the database from one valid state to another,
+
+*Isolation* -  Isolation is the main goal of concurrency control; depending on the method used, the effects of an incomplete transaction might not even be visible to other transactions.
+
+*Durability* - Durability guarantees that once a transaction has been committed, it will remain committed even in the case of a system failure
+
+__SQL vs. no SQL__
+
+SQL databases are primarily called as Relational Databases (RDBMS); whereas NoSQL database are primarily called as non-relational or distributed database.
+
+__Improve Performance__
+- Optimize Queries
+- Create optimal indexes
+- Update CPU
+- Allocate more memory
+- Data defragmentation
+- Disk Types
+- Database version
+- Stream data
+
+__Reading Large number of data__
+- Chunking your data
+- Dropping data
+- Set specific data types for each column
+
+__Faster query__
+- Use only the correct number of columns you need
+- Reduce nested views to reduce lags
+- Use automatic partitioning SQL server features
+- Convert scalar functions into table-valued functions
+- Avoid sub query
+- Create a Highly Selective Index
+- Data pre-staging
+	-Data pre-staging means you can have your reports faster. Join data tables ahead of reporting, presentation or writing time to avoid joining them together at once.
+- Use temp tables
+	- Temporary tables come in handy in several situations, especially when you are joining a small table to a larger one.
+- Avoid negative searches
+	- Nothing slows data as much as carrying out negative searches. To avoid this, rewrite your queries with better indexes, especially for large amounts of data.
+- Avoid cursors
+- Do not use Globally Unique Identifiers 
+- Avoid triggers
+- Separate large and small transactions
+- use stored procedures
 
 Architecture
 - Horizontal scaling means that you scale by adding more machines into your pool of resources
 - Vertical scaling means that you scale by adding more power (CPU, RAM) to an existing machine.
 
-Code Profiling
-	C#
-	- VS code profiling
-	- RedGate ANTS
-	- dotTrace
+## Appication Performance
 
-	Java
-	- VisualVM
-	- JProfiler
-	- Dynatrace: JVM profiling in production
+__Tranfer Large data__
+- Batch processing
+- Parallel processing
 
-	JavaScript
-	- Chrome dev-tools
+__Large Data Files__
+- Allowed more memory
+- worked with small smaple
+- change data formate
+- strem data
+- prograssive loading
+- big data platfrom
 
-	Database
-	- SQL sever profiler
+__Reading large number of data__
+- Stream
 
-	Tranfer Large data
-	- Batch processing
-	- Parallel processing
+__High performance__
+- Up time
+	- kubarnati
+- parallal processing
+	- Invoice file thransfer form ftp. 7 diff files
+- fail safe
+	- kubarnati can restart after shoutdonw
+- high throughput
+	- bratch processing
+	- edge computing
+	- kafka messing
+	- in memory database
+	- cacheing
+- continuous monitoring
+	- dynatrace
+- rollout deployment
+	- jankins & OpenShift
+- scalabelity
+	- kubarnati auto scalling
+- Loggin
 
-	Large Data Files
-	- Allowed more memory
-	- worked with small smaple
-	- change data formate
-	- strem data
-	- prograssive loading
-	- big data platfrom
+__Session__
 
-	Reading large number of data
-	- Stream
+In computer science and networking in particular, a session is a temporary and interactive information interchange between two or more communicating devices, or between a computer and user.
 
-	High performance
-	- Up time
-		* kubarnati
-	- parallal processing
-		* Invoice file thransfer form ftp. 7 diff files
-	- fail safe
-		* kubarnati can restart after shoutdonw
-	- high throughput
-		* bratch processing
-		* edge computing
-		* kafka messing
-		* in memory database
-		* cacheing
-	- continuous monitoring
-		* dynatrace
-	- rollout deployment
-		* jankins & OpenShift
-	- scalabelity
-		* kubarnati auto scalling
-	- Loggin
+The session can be stored on the server, or on the client. If it's on the client, it will be stored by the browser, most likely in cookies and if it is stored on the server, the session ids are created and managed by the server
 
+### Code Profiling
 
-	Session
-		In computer science and networking in particular, a session is a temporary and interactive information interchange between two or more communicating devices, or between a computer and user.
-		The session can be stored on the server, or on the client. If it's on the client, it will be stored by the browser, most likely in cookies and if it is stored on the server, the session ids are created and managed by the server
->>
-The Right Way To Say “I Don't Know” In An Interview
+__C\#__
+- VS code profiling
+- RedGate ANTS
+- dotTrace
 
-    Take some time to think. It's perfectly acceptable to take a moment to breathe and think before launching into an answer. ...
-    Ask clarifying questions. ...
-    Know when to say “I don't know.” ...
-    Take the opportunity to follow up.
+__Java__
+- VisualVM
+- JProfiler
+- Dynatrace: JVM profiling in production
 
->>
-A time you held a leadership position
-> Cargo mangement application, Invoice transfer, 
-A time you had to present
-> Reotinto, 
-A time you went above and beyond for an asignment  
-> Invoide management, CDR transfer, Airlines interline
+__JavaScript__
+- Chrome dev-tools
 
->>>
-What opportunities will I have to learn and grow?
-Which part of the position has the steepest learning curve? What can I do in order to get up to speed quickly?
-day-to-day responsibilities of this job?
-What do you think are the most important qualities for someone to excel in this role?
-What are the biggest opportunities facing the company/department right now?
-What are the biggest challenges facing the company/department right now?
-What do you like best about working for this company?
+__Database__
+- SQL sever profiler
+
+## The Right Way To Say “I Don't Know” In An Interview
+- Take some time to think. It's perfectly acceptable to take a moment to breathe and think before launching into an answer. ...
+- Ask clarifying questions. ...
+- Know when to say “I don't know.” ...
+- Take the opportunity to follow up.
+
+## Question to ask at the end
+- What opportunities will I have to learn and grow?
+- Which part of the position has the steepest learning curve? What can I do in order to get up to speed quickly?
+- day-to-day responsibilities of this job?
+- What do you think are the most important qualities for someone to excel in this role?
+- What are the biggest opportunities facing the company/department right now?
+- What are the biggest challenges facing the company/department right now?
+- What do you like best about working for this company?
+
+## Some other question
+
+__A time you held a leadership position__
+
+Cargo mangement application, Invoice transfer, 
+
+__A time you had to present__
+
+Reotinto, 
+
+__A time you went above and beyond for an asignment__
+
+Invoide management, CDR transfer, Airlines interline
