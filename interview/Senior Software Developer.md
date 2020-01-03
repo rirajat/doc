@@ -1,7 +1,52 @@
 # Senior Software Developer
 
+__Table of Contains__
+<!-- MarkdownTOC -->
+
+- [Mehodology](#mehodology)
+	- [Agile](#agile)
+- [Testing](#testing)
+- [Security](#security)
+		- [Web Security](#web-security)
+- [CI/CD](#cicd)
+	- [Docker](#docker)
+	- [Jankins](#jankins)
+	- [Kubarnait](#kubarnait)
+	- [Revision Control](#revision-control)
+- [Microservice](#microservice)
+	- [Kafka](#kafka)
+	- [SOA](#soa)
+		- [RestFull](#restfull)
+		- [Soap](#soap)
+- [Design pattrn](#design-pattrn)
+	- [SOLID](#solid)
+	- [MVC](#mvc)
+	- [MVVM](#mvvm)
+	- [TDD](#tdd)
+	- [Architecture](#architecture)
+- [Programming](#programming)
+		- [Object Oriented Programming \(OOP\)](#object-oriented-programming-oop)
+		- [C\](#c)
+		- [ASP MVC](#asp-mvc)
+		- [Java](#java)
+			- [Spring boot](#spring-boot)
+			- [Memory Management](#memory-management)
+		- [JavaScript](#javascript)
+- [Database](#database)
+- [Appication Performance](#appication-performance)
+	- [Code Profiling](#code-profiling)
+- [The Right Way To Say “I Don't Know” In An Interview](#the-right-way-to-say-%E2%80%9Ci-dont-know%E2%80%9D-in-an-interview)
+- [Question to ask at the end](#question-to-ask-at-the-end)
+- [Some other question](#some-other-question)
+
+<!-- /MarkdownTOC -->
+
+---
+
+<a id="mehodology"></a>
 ## Mehodology
 
+<a id="agile"></a>
 ### Agile
 
 __Velocity__ is the rate of which team progeresses by sprint.
@@ -23,6 +68,7 @@ __Drawback of the Agile model__
 - Unclear requirment cause delay
 - Only leader can make any desition.
 
+<a id="testing"></a>
 ## Testing 
 
 __Traceability matrix__ relationship between test case nad requirments
@@ -32,12 +78,14 @@ __White box testing__ test code coverage, path coverage, condition coverage
 __black box testing__ test code without knowing internal structure of code. Boundary value analysis
 
 __Different testing levels__
+
 - unit 
 - integration
 - system 
 - acceptance
 
 __Test Plans consists of__
+
 - scope
 - test case identifier
 - features
@@ -50,9 +98,11 @@ __UAT__ testing involves running a product through a series of specific tests wh
 
 __System Testing__ is finding defects when the system undergoes testing as a whole; it is also known as end-to-end testing.
 
+<a id="security"></a>
 ## Security
 
 __How to store Password inside the code?__
+
 - use *char* array
 - stored it as *hashed* code
 
@@ -64,19 +114,23 @@ __Hash vs Encription__
 
 *Hashing* - A hash is a string or number generated from a string of text. The resulting string or number is a fixed length, and will vary widely with small variations in input. The best hashing algorithms are designed so that it's impossible to turn a hash back into its original string.
 Ex; 
+
 - MD5
 - SHA/SHA-1/SHA-2
 	
 *Encryption* - Encryption turns data into a series of unreadable characters, that aren't of a fixed length. The key difference between encryption and hashing is that encrypted strings can be reversed back into their original decrypted form if you have the right key. 
 Ex; 
+
 - AES 
 - PGP
 
 __Apache Shiro__ is an open source software security framework that performs authentication, authorization, cryptography and session management. Shiro has been designed to be an intuitive and easy-to-use framework while still providing robust security features.
 
+<a id="web-security"></a>
 #### Web Security
 
 __How to mitigate the SQL Injection risks?__
+
 - Prepared Statements 
 - Stored Procedures
 - Input Validation
@@ -94,6 +148,7 @@ __role base security__
 
 varify the role and identity
 
+<a id="cicd"></a>
 ## CI/CD
 
 __What's the difference between a blue/green deployment and a rolling deployment?__
@@ -118,6 +173,7 @@ In a load balanced server application where user information is stored in sessio
     
 This is typically done by using SessionId cookie. The cookie is sent to the client for the first request and every subsequent request by client must be containing that same cookie to identify the session. 
 
+<a id="docker"></a>
 ### Docker
 
 __What is it?__
@@ -141,12 +197,14 @@ __The important three components are;__
 -  *monitor the docker*; Docker states and Docker Events 
 
 __States of Docker container__
+
 - Running
 - Paused
 - Restarting
 - Exited
 	
 __Lifecycle of Docker Container;__
+
 - Create a container.
 - Run the Docker container.
 - Pause the Container.
@@ -158,6 +216,7 @@ __Lifecycle of Docker Container;__
 - Destroy the Container.
 
 __Commends__
+
 - `docker run` – Runs a command in a new container.
 - `docker start` – Starts one or more stopped containers
 - `docker stop` – Stops one or more running containers
@@ -170,6 +229,7 @@ __Commends__
 - `docker attach` – Attaches to a running container
 - `docker commit` – Creates a new image from a container’s changes
 
+<a id="jankins"></a>
 ### Jankins
 
 __Pre-requisites__ management repository like GIT or SVN repository and Build script.
@@ -196,17 +256,20 @@ A Pipeline’s code defines your entire build process, which typically includes 
 - Step - what to do at a particular point in time
 
 
+<a id="kubarnait"></a>
 ### Kubarnait
 
 __What is `Container Orchestration`?__
 
 So, as orchestration means the amalgamation of all instruments playing together in harmony in music, similarly container orchestration means all the services in individual containers working together to fulfill the needs of a single server.
 
+<a id="revision-control"></a>
 ### Revision Control
 
 - Git
 - SVN
 
+<a id="microservice"></a>
 ## Microservice
 
 __Service Discovery__ 
@@ -227,6 +290,7 @@ __PACT__
 
 PACT is an open source tool. It helps in testing the interactions between consumers and service providers. 
 
+<a id="kafka"></a>
 ### Kafka
 
 __What are the elements of Kafka?__
@@ -244,11 +308,14 @@ __Elaborate the architecture of Kafka.__
 
 In Kafka, a cluster contains multiple brokers since it is a distributed system. Topic in the system will get divided into multiple partitions, and each broker stores one or more of those partitions so that multiple producers and consumers can publish and retrieve messages at the same time.
 
+<a id="soa"></a>
 ### SOA
 
+<a id="restfull"></a>
 #### RestFull
 
 __Core Concept__
+
 - Get (Retrieve)
 - Post (Create)
 - Put (Replace)
@@ -256,13 +323,16 @@ __Core Concept__
 - Delete (delete)
 
 __Versioning__
+
 - URI Path
 - query parameters
 - custom headers
 - content negotiation
 
+<a id="soap"></a>
 #### Soap
 
+<a id="design-pattrn"></a>
 ## Design pattrn
 
 * Fault-tolerant distributed systems often handle failures in two steps: 
@@ -299,6 +369,7 @@ __Versioning__
 * Visitor - Represent an operation to be performed on the elements of an object structure.
 * Event-based asynchronous - Addresses problems with the asynchronous pattern that occur in multithreaded programs
 
+<a id="solid"></a>
 ### SOLID
 
 * `Single Responsibility Principle`: 
@@ -313,18 +384,28 @@ __Versioning__
 	- High-level modules should not depend on low-level modules. Both should depend on abstractions.
 	- Abstractions should not depend on details. Details should depend on abstractions.
 
+<a id="mvc"></a>
 ### MVC
+<a id="mvvm"></a>
 ### MVVM
+<a id="tdd"></a>
 ### TDD
+- You are not allowed to write any production code unless it is to make a failing unit test pass.
+- You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures.
+- You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
 
+<a id="architecture"></a>
 ### Architecture
+
 - Layered
 - Event driven
 - Microservice
 - Monolithic
 
+<a id="programming"></a>
 ## Programming
 
+<a id="object-oriented-programming-oop"></a>
 #### Object Oriented Programming (OOP)
 
 __Object__ is an instance of a class.
@@ -338,6 +419,7 @@ __Destructor__ is a method which is automatically called when the object is made
 __Symbol table__ is an important data structure created and maintained by compilers in order to store information about the occurrence of various entities such as variable names, function names, objects, classes, interfaces, etc. The symbol table contains information to locate and relocate symbolic definitions and references. The assembler creates the symbol table section for the object file. It makes an entry in the symbol table for each symbol that is defined or referenced in the input file and is needed during linking.
 
 __Core concept__
+
 - Abstraction
 - Encapsulation - public, private
 - Inheritance - subclass
@@ -359,22 +441,26 @@ In Java, an abstract class can implement an interface, and not provide implement
 - Interface can not implement interface
 
 C# on the other hand seems to require that the abstract class provide implementations for all of the methods on the interface. Even if that implementation is just a method signature.
+
 - Abstract class need to implement interface methord
 - Interface can inharit from other interface
 - An abstract class is a special type of class that cannot be instantiated
 
 __Static__
+
 - can not declare inside the methord
 - The value is initialized when the class is loaded. Therefore each time you execute the code, it is initialized to the value "Java" as is defined in the class. The new value is not saved, it is only changed in memory and is "reset" when the code is executed again. 
 - scope is defined only within the running program. everytime class is executed.
 - It means the static variable are NOT global variable but only global to single execution!!!
 
 C#
+
 - class scope
 - object can not access Static methord/var
 - `Test t = null; t.StaticI - not accessable`
 
 Java
+
 - Static variables are "per class"
 - object can access Static methord
 - `Test t = null; t.StaticI - is accessable`
@@ -391,12 +477,14 @@ The default access type of a Structure is public, but class access type is priva
 A structure is used for grouping data, whereas a class can be used for grouping data and methods. 
 
 __Type of scope (C#/Java)__
+
 - Class-Level Scope
 - Method-Level Scope
 - Nested Scope/Block scope
 - dynamic scoping/lexical scoping/static scoping
 
 __HashSet vs ArrayList__
+
 - HashSet ensures there are no duplicates, gives you an O(1) contains() method but doesn't preserve order.
     - is a set
 - ArrayList doesn't ensure there are no duplicates, contains() is O(n) but you can control the order of the entries.
@@ -411,6 +499,7 @@ __context-switching in multi-threading__
 *Context Switching* is the process of storing and restoring of CPU state so that Thread execution can be resumed from the same point at a later point of time. Context Switching is the essential feature for multitasking operating system and support for multi-threaded environment. 
 
 
+<a id="c"></a>
 #### C\#
 
 __Can multiple catch blocks be executed?__
@@ -502,6 +591,7 @@ Serialization is a process of converting a code to its binary format. Once it is
 *Binary Serialization* – Allows any code to be converted to its binary form. Can serialize and restore public and non-public properties. It is faster and occupies less space.
 
 __What is Heap and what is Stack?__
+
 - Both are memory locations, wherein Heap is global and Stack is local.
 - The Stack has a defined first-in-first-out stack structure, while the Heap does not have a defined data structure.
 - The Stack is faster than the Heap. A stack is in “cache” and doesn’t have to synchronize with other threads like the Heap.
@@ -522,6 +612,7 @@ __constants and read only variables?__
 For constants, the compilation contains declaration and initialization. Its value cannot change. 
 
 For read-only variables, the runtime execution contains the assignment of values. 
+
 - Read-only variables can support reference-type variables. Constants can hold only value-type variables. 
 - Developers evaluate read-only variables at the runtime. They evaluate constants at the compile time.
 - Read only can be only assign through constractor
@@ -597,9 +688,11 @@ __abstract class__
 
 abstract class can not be 'sealed' or 'static'
 
+<a id="asp-mvc"></a>
 #### ASP MVC
 
 __trafer data__
+
 - Model
 - ViewBag
 - ViewData
@@ -631,6 +724,7 @@ __Model Binding__
 
 Model binding is a well-designed bridge between the HTTP request and the C# action methods.
 
+<a id="java"></a>
 #### Java
 
 __Do all the properties of an Immutable Object need to be final in Java?__
@@ -733,6 +827,7 @@ __Difference between notify() method and notifyAll() method in Java.__
 		
 `notifyall`; sends signal to wake up all the threads
 
+<a id="spring-boot"></a>
 ##### Spring boot
 
 __What is Spring Boot?__
@@ -740,6 +835,7 @@ __What is Spring Boot?__
 Spring Boot is another Java framework from Sring umbrella
 
 __feature__
+
 - starter dependency
 - auto-config
 - spring initializer
@@ -757,6 +853,7 @@ process in which an object defines its dependencies without creating them.
 __Bean__ 
 
 Code managed by spring framework
+
 - singleton scope
 - propttype scope - create new bean everytime
 - request scope - create bean in every http request
@@ -766,6 +863,7 @@ Code managed by spring framework
 __Autowired__
 
 allows spring to resolve and inject collaboration beans.
+
 - Properties
 - Setters
 - Constrator
@@ -773,6 +871,7 @@ allows spring to resolve and inject collaboration beans.
 - Qualifer - use to hint at and narrow down the required bean.
 - Custom Qualifier 
 
+<a id="memory-management"></a>
 ##### Memory Management
 
 __jps__ - show all memory info
@@ -782,6 +881,7 @@ __jps__ - show all memory info
 `kill -3 11568` - kill the process
 
 __Applicaiton use to identify memory__
+
 - JProfiler
 - visualvm
 
@@ -790,26 +890,32 @@ __Java Memory managemnt looks like__
 Hip space and metaspace
 
 __Java memory level__
+
 - eden
 - S0
 - S1
 - Old memory
 - Perm
 
+<a id="javascript"></a>
 #### JavaScript
+
 - Promis
 - EmberJs
 - VouJs
 - Angular
 
+<a id="database"></a>
 ## Database
 
 __Type of databases__
+
 - RDMS: SQLServer, MySql, Postgrad, Oracal
 - NoSql: MongoDb, Casandra, Readis
 - Graph Database: Neo4j
 
 __Database Performance__
+
 - Make Sure Snapshot Mode Is On
 - indexing
 - avoid fragment indexing
@@ -849,6 +955,7 @@ __SQL vs. no SQL__
 SQL databases are primarily called as Relational Databases (RDBMS); whereas NoSQL database are primarily called as non-relational or distributed database.
 
 __Improve Performance__
+
 - Optimize Queries
 - Create optimal indexes
 - Update CPU
@@ -859,11 +966,13 @@ __Improve Performance__
 - Stream data
 
 __Reading Large number of data__
+
 - Chunking your data
 - Dropping data
 - Set specific data types for each column
 
 __Faster query__
+
 - Use only the correct number of columns you need
 - Reduce nested views to reduce lags
 - Use automatic partitioning SQL server features
@@ -883,16 +992,20 @@ __Faster query__
 - use stored procedures
 
 Architecture
+
 - Horizontal scaling means that you scale by adding more machines into your pool of resources
 - Vertical scaling means that you scale by adding more power (CPU, RAM) to an existing machine.
 
+<a id="appication-performance"></a>
 ## Appication Performance
 
 __Tranfer Large data__
+
 - Batch processing
 - Parallel processing
 
 __Large Data Files__
+
 - Allowed more memory
 - worked with small smaple
 - change data formate
@@ -901,9 +1014,11 @@ __Large Data Files__
 - big data platfrom
 
 __Reading large number of data__
+
 - Stream
 
 __High performance__
+
 - Up time
 	- kubarnati
 - parallal processing
@@ -930,31 +1045,40 @@ In computer science and networking in particular, a session is a temporary and i
 
 The session can be stored on the server, or on the client. If it's on the client, it will be stored by the browser, most likely in cookies and if it is stored on the server, the session ids are created and managed by the server
 
+<a id="code-profiling"></a>
 ### Code Profiling
 
 __C\#__
+
 - VS code profiling
 - RedGate ANTS
 - dotTrace
 
 __Java__
+
 - VisualVM
 - JProfiler
 - Dynatrace: JVM profiling in production
 
 __JavaScript__
+
 - Chrome dev-tools
 
 __Database__
+
 - SQL sever profiler
 
+<a id="the-right-way-to-say-%E2%80%9Ci-dont-know%E2%80%9D-in-an-interview"></a>
 ## The Right Way To Say “I Don't Know” In An Interview
+
 - Take some time to think. It's perfectly acceptable to take a moment to breathe and think before launching into an answer. ...
 - Ask clarifying questions. ...
 - Know when to say “I don't know.” ...
 - Take the opportunity to follow up.
 
+<a id="question-to-ask-at-the-end"></a>
 ## Question to ask at the end
+
 - What opportunities will I have to learn and grow?
 - Which part of the position has the steepest learning curve? What can I do in order to get up to speed quickly?
 - day-to-day responsibilities of this job?
@@ -963,6 +1087,7 @@ __Database__
 - What are the biggest challenges facing the company/department right now?
 - What do you like best about working for this company?
 
+<a id="some-other-question"></a>
 ## Some other question
 
 __A time you held a leadership position__
