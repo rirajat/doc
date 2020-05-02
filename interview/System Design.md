@@ -2,6 +2,16 @@
 
 __Ref__
 
+```plantuml
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+@enduml
+```
+
 https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design
 
 __Old Design__ 
