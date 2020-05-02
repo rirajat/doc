@@ -2,15 +2,7 @@
 
 __Ref__
 
-```plantuml
-@startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: Another authentication Response
-@enduml
-```
+![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/plantuml/plantuml-server/master/src/main/webapp/resource/test2diagrams.txt)
 
 https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design
 
