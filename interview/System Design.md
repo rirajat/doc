@@ -2,7 +2,7 @@
 
 __Ref__
 
-!includeurl http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBAJrBGjLDmpCbCJbMmKYX9BIxXSaZDIm7A0G00
+![includeurl](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBAJrBGjLDmpCbCJbMmKYX9BIxXSaZDIm7A0G00)
 
 https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design
 
