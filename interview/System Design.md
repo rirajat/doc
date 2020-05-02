@@ -2,7 +2,7 @@
 
 __Ref__
 
-![img](https://capitalone.github.io/architecture-viewer/?url=https://raw.githubusercontent.com/capitalone/architecture-viewer/master/sample_plantuml_data/example.adoc)
+https://capitalone.github.io/architecture-viewer/?url=https://raw.githubusercontent.com/capitalone/architecture-viewer/master/sample_plantuml_data/example.adoc
 
 https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design
 
