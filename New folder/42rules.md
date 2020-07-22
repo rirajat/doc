@@ -1,5 +1,4 @@
 Table of Contents
-
 	 	
 	Foreword by John A. Byrne	
 	Introduction	
